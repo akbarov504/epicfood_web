@@ -21,4 +21,4 @@ if __name__ == '__main__':
     from routes.product_route import *
     from routes.gift_route import *
     from routes.language_route import *
-    app.run(debug=True, port=8080, host='0.0.0.0')
+    app.run(debug=True, port=80, host='0.0.0.0')
