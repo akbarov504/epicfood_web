@@ -1,0 +1,59 @@
+{% extends "auth/admin.html" %}
+
+{% block after_nav %}
+<div class="create_user" method="post">
+    <a class="btn btn-primary ml-auto text-white" href="{{ url_for('language_create') }}">{{ translation.get(27) }}</a>
+</div>
+
+
+
+<section class="table-cover mt-4">
+    <table class="table table-hover table-dark users-table">
+        <thead>
+            <tr>
+                <th>{{ translation.get(28) }}</th>
+                <th>{{ translation.get(29) }}</th>
+                <th>{{ translation.get(30) }}</th>
+                <th>{{ translation.get(31) }}</th>
+                <th>{{ translation.get(32) }}</th>
+                <th>{{ translation.get(20) }}</th>
+            </tr>
+        </thead>
+        <form method="post">
+            <tbody>
+                {% for language in languages %}
+                    <tr>
+                        <td>{{ language.code }}</td>
+                        <td>{{ language.eng }}</td>
+                        <td>{{ language.uzb }}</td>
+                        <td>{{ language.rus }}</td>
+                        <td>{{ language.file_name }}</td>
+                        <td>
+                            <a type="button" class="fa-regular fa-trash-can" data-bs-toggle="modal" data-bs-target="#sureLanguage{{language.code}}"></a>
+                            <a class="fa-solid fa-pen-to-square ml-3" href="{{ url_for('language_update', language_id = language.code) }}"></a>
+                        </td>
+                        <!-- Modal -->
+                        <div class="modal fade" id="sureLanguage{{language.code}}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="sureLanguage{{language.code}}Label" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h1 class="modal-title fs-5" id="staticBackdropLabel">{{ translation.get(25) }} {{language.code}}</h1>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        {{ translation.get(22) }}
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ translation.get(24) }}</button>
+                                        <button type="submit" class="btn btn-danger" name="delete" value="{{ language.code }}">{{ translation.get(25) }}</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </tr>     
+                {% endfor %}
+            </tbody>
+        </form>
+    </table>
+</section>
+{% endblock %}

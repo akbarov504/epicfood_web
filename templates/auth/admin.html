@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Admin Panel</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'css/admin_home.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'css/admin_users.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'css/admin_products.css') }}">
+</head>
+<body>
+
+<div id="sidebar">
+    <button id="closeSidebar">&times;</button> 
+    <h2 class="mt-3">Epicfood</h2>
+    <ul class="nav flex-column mt-3">
+        <li class="nav-item"><a class="nav-link" href="{{ url_for('admin_home') }}"><span class="ml-1">{{ translation.get(10) }}</span><i class="fa-solid fa-house"></i></a></li>
+        <li class="nav-item"><a class="nav-link" href="{{ url_for('admin_users') }}"><span class="ml-1">{{ translation.get(11) }}</span><i class="fa-solid fa-user"></i></a></li>
+        <li class="nav-item"><a class="nav-link" href="{{ url_for('admin_products') }}"><span class="ml-1">{{ translation.get(12) }}</span><i class="fas fa-shopping-bag"></i></a></li>
+        <li class="nav-item"><a class="nav-link" href="{{ url_for('admin_gifts') }}"><span class="ml-1">{{ translation.get(13) }}</span><i class="fas fa-gifts"></i></a></li>
+        <li class="nav-item"><a class="nav-link" href="{{ url_for('admin_language') }}"><span class="ml-1">{{ translation.get(14) }}</span><i class="fas fa-language"></i></a></li>
+        <li class="nav-item"><a class="nav-link" href="{{ url_for('logout') }}"><span class="ml-1">{{ translation.get(70) }}</span><i class="fa-solid fa-right-from-bracket"></i></a></li>
+    </ul>
+</div>
+
+<section class="right-nav">
+    <nav>
+        <h3>Epicfood</h3>
+        <button class="btn btn-secondary d-md-none" type="button" id="toggleSidebar">
+            {{ translation.get(15) }}
+        </button>
+        <h3>{{ current_user.full_name }}</h3>
+    </nav>
+    {% block after_nav %}{% endblock %}
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<script src="https://kit.fontawesome.com/6125e90fa6.js" crossorigin="anonymous"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        let sidebar = document.getElementById("sidebar");
+        let toggleButton = document.getElementById("toggleSidebar");
+        let closeButton = document.getElementById("closeSidebar");
+
+        function openSidebar() {
+            sidebar.style.transform = "translateX(0px)";
+        }
+
+        function closeSidebar() {
+            sidebar.style.transform = "translateX(-100%)";
+        }
+
+        toggleButton.addEventListener("click", function () {
+            if (window.innerWidth <= 800) {
+                openSidebar();
+            }
+        });
+
+        closeButton.addEventListener("click", function () {
+            closeSidebar();
+        });
+
+        // Auto-hide sidebar when resizing back to large screen
+        window.addEventListener("resize", function () {
+            if (window.innerWidth > 800) {
+                sidebar.style.transform = "translateX(0px)";
+            } else {
+                sidebar.style.transform = "translateX(-100%)";
+            }
+        });
+    });
+</script>
+
+</body>
+</html>

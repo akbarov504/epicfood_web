@@ -1,0 +1,25 @@
+.products{
+    width: 90%;
+    gap: 50px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+.card a{
+    width: 100px;
+}
+.card .row{
+    gap: 20px;
+}
+.creation_form{
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: right;
+    margin-bottom: 50px;
+}
+.creation_form a{
+    font-weight: 600;
+}

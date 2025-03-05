@@ -1,0 +1,149 @@
+html {
+    scroll-behavior: smooth;
+}
+
+header {
+    background: url(/static/images/header-img.png)
+}
+
+.shadow-text {
+    color: #000;
+    text-shadow: 0px 0px 2px #fff, 0px 0px 2px #fff, 0px 0px 2px #fff, 0px 0px 2px #fff, 0px 0px 2px #fff, 0px 0px 2px #fff;
+}
+
+.onas1{
+    background-image: url(/static/images/product-background-image.png);
+}
+
+.onas2 {
+    background: rgba(21, 23, 27, 1);
+}
+
+.onas-1-image {
+    width: 250px;
+    height: 250px;
+}
+
+.product-background-image {
+    background: url(/static/images/product-background-image.png) right top no-repeat;
+    background-origin: content-box;
+    -webkit-background-origin: content-box;
+    -moz-background-origin: content-box;
+}
+
+.product-logo-image {
+    width: 200px;
+    position: absolute;
+    right: 0;
+}
+
+.product {
+    border-radius: 30px;
+    height: 520px !important;
+    max-width: 700px !important;
+    min-width: 453px !important;
+    padding: 0px !important;
+}
+
+.content{
+    position: absolute;
+    width: 90%;
+    left: 5%;
+    top: 5%;
+    height: 90%;
+}
+.product-image{
+    width: 100%;
+    height: 100%;
+    border-radius: 30px;
+}
+
+.flip-text {
+    position: absolute;
+    top: 0px;
+    writing-mode: vertical-lr;
+    -webkit-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    transform: rotate(180deg);
+}
+.product-text{
+    position: absolute;
+    bottom: 0px;
+}
+
+.product-1 {
+    background: linear-gradient(180deg, #0d5936 0%, #15171B 100%);
+    background-size: 100% 100%;
+}
+.product-2 {
+    background: linear-gradient(180deg, #822227 0%, #15171B 100%);
+    background-size: 100% 100%;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+    width: auto !important;
+}
+.card-deck .card{
+    flex: 0 1 auto !important;
+    min-width: 300px;
+    max-width: 500px;
+}
+.card-deck .col-auto img{
+    width: 90%;
+}
+
+.nado{
+    max-width: 400px;
+}
+#carouselId1 .card-body{
+    padding-left: 0;
+}
+@media screen and (max-width: 1200px) {
+ 
+}
+
+@media screen and (max-width: 768px) {
+    
+    .product-logo-image {
+        position: static;
+    }
+
+    .product-background-image {
+        background-clip: border-box;
+    }
+
+    .navbar-collapse {
+        position: absolute;
+    }
+}
+
+@media screen and (max-width: 530px) {
+
+    .product {
+        min-width: auto !important;
+    }
+    .shadow-text {
+        font-size: 10vw;
+    }
+
+    .onas-1-image {
+        width: 150px;
+        height: 150px;
+    }
+
+    .product img {
+        height: auto !important;
+    }
+    
+    .product {
+        min-width: 300px !important;
+        height: auto !important;
+        padding: 20px 0;
+    }
+    .flip-text{
+        display: none;
+    }
+}

@@ -1,0 +1,122 @@
+#sidebar {
+    width: 320px;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #343a40;
+    color: white;
+    padding: 15px;
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Close button only for small screens */
+#closeSidebar {
+    display: none;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: white;
+    cursor: pointer;
+}
+li a{
+    color: white !important;
+    font-weight: 5 00 !important;
+}
+.right-nav{
+    width: 100%;
+    padding-left: 320px;
+}
+.right-nav nav{
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    padding: 30px 0;
+}
+#sidebar h2{
+    padding-left: 16px;
+}
+#sidebar ul{
+    margin-top: 30px;
+}
+#sidebar li{
+    text-align: left;
+    margin-top: 10px;
+    padding: 5px 0;
+}
+#sidebar a{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: space-between;
+}
+#sidebar a:hover{
+    background-color: rgba(255, 255, 255, 0.1);
+    transition: 0.3s;
+    cursor: pointer;
+}
+.fa-trash-can, .fa-pen-to-square{
+    color: white;
+}
+tbody tr:hover .fa-trash-can, tbody tr:hover .fa-pen-to-square{
+    color: #a2aeb9;
+    transition: 0.3s;
+}
+.fa-trash-can:hover, .fa-pen-to-square:hover{
+    cursor: pointer;
+}
+.update-button{
+    background-color: transparent;
+    border: 0;
+    margin-left: 30px;
+}
+.table-cover{
+    width: 90%;
+    margin: 0 auto;
+    overflow: auto;
+}
+table{
+    min-width: 1160px;
+}
+table{
+    --bs-table-bg: #292e32;
+    --bs-table-hover-bg: #212529;
+}
+thead{
+    --bs-table-bg: #212529;
+}
+input[type='checkbox'] {
+    zoom: 1.2;
+}
+@media (max-width: 800px) {
+    #sidebar {
+        transform: translateX(-100%);
+    }
+
+    #closeSidebar {
+        display: block; /* Show close button on small screens */
+    }
+    .right-nav{
+        padding-left: 0;
+    }
+}
+@media screen and (max-width: 500px) {
+    .right-nav nav{
+        gap: 30px;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    .right-nav nav h3:first-child{
+        order: 1;
+    }
+    .right-nav nav h3:last-child{
+        order: 2;
+    }
+    .right-nav nav button{
+        order: 3;
+    }
+}
