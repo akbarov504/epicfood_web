@@ -7,6 +7,12 @@ from models.product import Product
 
 current_language = ""
 
+@app.route('/.well-known/pki-validation/11F1B8CE203E7A57F6AF17C33CB41228.txt', methods=["GET"])
+def get_file() -> render_template:
+    book_io = open(".well-known/pki-validation/11F1B8CE203E7A57F6AF17C33CB41228.txt", "r", encoding = "UTF-8")
+    book_str = book_io.read()
+    return book_str
+
 @app.route('/', methods = ['GET', 'POST'])
 @app.route('/home', methods = ['GET', 'POST'])
 def home_page() -> render_template:
