@@ -7,7 +7,7 @@ import os
 app = Flask(__name__)
 app.config["UPLOADS_FOLDER"] = os.path.join(os.getcwd(), "static", "uploads")
 app.config["SECRET_KEY"] = "342afc9ac23241fa1372f913"
-app.config["SQLALCHEMY_DATABASE_URI"] = "postgresql://sammy:akbarov@127.0.0.1:5432/epicfood"
+app.config["SQLALCHEMY_DATABASE_URI"] = "postgresql://akbarov:akbarov@127.0.0.1:5432/epicfood"
 app.config["WTF_CSRF_ENABLED"] = False
 app.config["WTF_CSRF_SECRET_KEY"] = "fgkgsd23gkfsdk32fds4r3t43t43"
 
@@ -21,4 +21,6 @@ if __name__ == '__main__':
     from routes.product_route import *
     from routes.gift_route import *
     from routes.language_route import *
-    app.run(debug=True, port=8080, host='0.0.0.0')
+    from waitress import serve
+    serve(app, host="0.0.0.0", port=80)
+    # app.run(debug=True, port=80, host='0.0.0.0')

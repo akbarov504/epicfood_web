@@ -9,7 +9,6 @@ class ProductForm(FlaskForm):
     description_uzb = StringField("Uzbek description:", [validators.DataRequired(), validators.Length(min=4)])
     description_rus = StringField("Russian description:", [validators.DataRequired(), validators.Length(min=4)])
     typee = SelectField('Type:', choices=[('puff','puff'),('popcorn','popcorn')], validators=[validators.DataRequired()])
-    price = IntegerField("Price: ", [validators.DataRequired()])
     gramm = IntegerField("Gramms:", [validators.DataRequired()])
     image_path = FileField("Product image:", [validators.DataRequired()])
     submit = SubmitField("Submit")

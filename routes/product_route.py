@@ -39,7 +39,6 @@ def product_create():
         description_uzb = p_form.description_uzb.data
         description_rus = p_form.description_rus.data
         typee = p_form.typee.data
-        price = p_form.price.data
         gramm = p_form.gramm.data
         
         image = p_form.image_path.data
@@ -47,7 +46,7 @@ def product_create():
         file_path = os.path.join(app.config["UPLOADS_FOLDER"], filename)
         image.save(file_path)
 
-        product = Product(title_eng,  title_uzb, title_rus, description_eng, description_uzb, description_rus, typee, price, gramm, filename)
+        product = Product(title_eng,  title_uzb, title_rus, description_eng, description_uzb, description_rus, typee, gramm, filename)
         db.session.add(product)
         db.session.commit()
 
@@ -66,7 +65,6 @@ def product_update(product_id: int):
         p_form.description_uzb.data = product.description_uzb
         p_form.description_rus.data = product.description_rus
         p_form.typee.data = product.typee
-        p_form.price.data = product.price
         p_form.gramm.data = product.gramm
 
         product_translation = Language.query.filter_by(file_name = 'product').all()
@@ -81,7 +79,6 @@ def product_update(product_id: int):
         product.description_uzb = p_form.description_uzb.data
         product.description_rus = p_form.description_rus.data
         product.typee = p_form.typee.data
-        product.price = p_form.price.data
         product.gramm = p_form.gramm.data
         
         image = p_form.image_path.data

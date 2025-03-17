@@ -18,7 +18,7 @@ class Product(db.Model):
     is_deleted = db.Column(db.Boolean(), default = False)
     created_at = db.Column(db.DateTime(), default = datetime.now)
 
-    def __init__(self, title_eng: str, title_uzb: str, title_rus: str, description_eng: str, description_uzb: str, description_rus: str, typee: str,  price: int, gramm: int, image_path: str):
+    def __init__(self, title_eng: str, title_uzb: str, title_rus: str, description_eng: str, description_uzb: str, description_rus: str, typee: str, gramm: int, image_path: str):
         super().__init__()
         self.title_eng = title_eng
         self.title_uzb = title_uzb
@@ -27,6 +27,6 @@ class Product(db.Model):
         self.description_uzb = description_uzb
         self.description_rus = description_rus
         self.typee = typee
-        self.price = price
+        self.price = 0
         self.gramm = gramm
         self.image_path = image_path
